@@ -29,7 +29,7 @@ export default function HomeScreen() {
 
         const events = response.data.items;
         console.log('Upcoming Events:', events);
-        alert(`Next Event: ${events[0]?.summary || 'No upcoming events'}`);
+        alert(`Next Event: ${events[0]?.location || 'Enter a location in your event to get directions there'}`);
       } catch (err) {
         console.error('Error fetching calendar events:', err);
       }
