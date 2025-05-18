@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const clientId = 'YOUR_GOOGLE_CLIENT_ID';
 
-function HomeScreen() {
+export default function HomeScreen() {
   const login = useGoogleLogin({
     scope: 'https://www.googleapis.com/auth/calendar.readonly',
     flow: 'implicit', // This ensures access_token is returned
@@ -47,5 +47,3 @@ function HomeScreen() {
     </GoogleOAuthProvider>
   );
 }
-
-export default App;
