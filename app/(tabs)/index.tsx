@@ -5,6 +5,7 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { jwtDecode } from 'jwt-decode';
 
 import { GoogleLogin } from '@react-oauth/google';
 
@@ -16,7 +17,40 @@ export default function HomeScreen() {
 
   const responseMessage = (response: any) => {
     client.current = response;
-      console.log(response);
+    // async function listUpcomingEvents() {
+    //   let response;
+    //   try {
+    //     const request = {
+    //       'calendarId': 'primary',
+    //       'timeMin': (new Date()).toISOString(),
+    //       'showDeleted': false,
+    //       'singleEvents': true,
+    //       'maxResults': 10,
+    //       'orderBy': 'startTime',
+    //     };
+    //     response = await gapi.client.calendar.events.list(request);
+    //     //https://www.googleapis.com/calendar/v3/calendars/calendarId/events
+    //   } catch (err) {
+    //     console.log('err', err);
+    //     return;
+    //   }
+
+    //   const events = response.result.items;
+    //   console.log('events', events);
+    //   if (!events || events.length == 0) {
+    //     console.log('no events found');
+    //     return;
+    //   }
+    //   // Flatten to string to display
+    //   // const output = events.reduce(
+    //   //     (str, event) => `${str}${event.summary} (${event.start.dateTime || event.start.date})\n`,
+    //   //     'Events:\n');
+    //   // document.getElementById('content').innerText = output;
+    // }
+
+
+    const parsed = jwtDecode(response.credential);
+      console.log(response, parsed);
   };
   const errorMessage = (error: any) => {
       console.log(error);
