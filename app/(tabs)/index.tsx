@@ -8,9 +8,14 @@ import { ThemedView } from '@/components/ThemedView';
 
 import { GoogleLogin } from '@react-oauth/google';
 
+import { useRef } from 'react';
+
 export default function HomeScreen() {
 
+  const client = useRef(null);
+
   const responseMessage = (response: any) => {
+    client.current = response;
       console.log(response);
   };
   const errorMessage = (error: any) => {

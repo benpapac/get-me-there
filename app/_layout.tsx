@@ -5,6 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import 'react-native-reanimated';
 
+
 import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function RootLayout() {
@@ -13,7 +14,7 @@ export default function RootLayout() {
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
 
-  const []
+ 
 
   if (!loaded) {
     // Async font loading only occurs in development.
